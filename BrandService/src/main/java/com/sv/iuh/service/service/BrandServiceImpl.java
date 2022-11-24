@@ -42,7 +42,7 @@ public class BrandServiceImpl implements BrandService {
 	public void saveBrand(Brand brand) {
 		int brandId = brand.getId();
 		if (brandId == 0) {
-			restTemplate.postForEntity(crmUrl, brandId, String.class);
+			restTemplate.postForEntity(crmUrl, brand, Brand.class);
 		} else {
 			restTemplate.put(crmUrl, brandId);
 		}

@@ -44,9 +44,9 @@ public class AddressServiceImpl implements AddressService{
 	public void saveAddress(Address address) {
 		int addressId = address.getId();
 		if(addressId == 0) {
-			restTemplate.postForEntity(crmUrl, addressId, String.class);
+			restTemplate.postForEntity(crmUrl, address, String.class);
 		} else {
-			restTemplate.put(crmUrl + "/", addressId);
+			restTemplate.put(crmUrl + "/", address);
 		}
 	}
 

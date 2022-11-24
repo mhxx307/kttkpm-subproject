@@ -47,7 +47,7 @@ public class CarServiceImpl implements CarService {
 	public void saveCar(Car car) {
 		int carId = car.getId();
 		if (carId == 0) {
-			restTemplate.postForEntity(crmUrl, car, Car.class);
+			restTemplate.postForEntity(crmUrl, car, String.class);
 		} else {
 			restTemplate.put(crmUrl, car);
 		}

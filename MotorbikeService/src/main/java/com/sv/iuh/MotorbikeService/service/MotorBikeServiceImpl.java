@@ -45,7 +45,7 @@ public class MotorBikeServiceImpl implements MotorBikeService{
 	public void saveMotorBike(MotorBike motorbike) {
 		int id = motorbike.getId();
 		if(id == 0) {
-			restTemplate.postForEntity(crmUrl, motorbike, MotorBike.class);
+			restTemplate.postForEntity(crmUrl, motorbike, String.class);
 			
 		}else {
 			restTemplate.put(crmUrl, motorbike);

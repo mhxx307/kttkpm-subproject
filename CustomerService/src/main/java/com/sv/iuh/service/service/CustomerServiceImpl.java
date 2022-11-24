@@ -43,9 +43,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public void saveCustomer(Customer customer) {
 		int customerId = customer.getId();
 		if (customerId == 0) {
-			restTemplate.postForEntity(crmUrl, customerId, String.class);
+			restTemplate.postForEntity(crmUrl, customer, String.class);
 		} else {
-			restTemplate.put(crmUrl + "/", customerId);
+			restTemplate.put(crmUrl + "/", customer);
 		}
 	}
 

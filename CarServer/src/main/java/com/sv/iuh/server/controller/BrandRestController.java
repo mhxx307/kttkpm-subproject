@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sv.iuh.server.model.Brand;
+import com.sv.iuh.server.repository.BrandRedisRepository;
 import com.sv.iuh.server.service.BrandService;
 
 
@@ -21,6 +22,9 @@ import com.sv.iuh.server.service.BrandService;
 public class BrandRestController {
 	@Autowired
 	private BrandService brandService;
+	
+	@Autowired
+	private BrandRedisRepository brandRedisRepository;
 	
 	@GetMapping("/brands/{id}")
 	public Brand findById(@PathVariable int id) {
@@ -46,6 +50,8 @@ public class BrandRestController {
 	public Brand addBrand(@RequestBody Brand brand) {
 		brand.setId(0);
 		brandService.saveBrand(brand);
+		
+		brandRedisRepository.save(brand);
 		return brand;
 	}
 	

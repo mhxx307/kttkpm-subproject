@@ -45,10 +45,10 @@ public class BikeServiceImpl implements BikeService {
 	
 		int bikeId = bike.getId();
 		if(bikeId == 0) {
-			restTemplate.postForEntity(crmUrl, bikeId, String.class);
+			restTemplate.postForEntity(crmUrl, bike, String.class);
 			
 		}else {
-			restTemplate.put(crmUrl, bikeId);
+			restTemplate.put(crmUrl, bike);
 		}
 
 	}
